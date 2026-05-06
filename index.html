@@ -42,7 +42,176 @@ body {
       color: #ffffff;
       letter-spacing: 1px;
     }
+/* =======================================
+   NAVIGATION BAR SESUAI WEBSITE
+   ASIA COMPUTER SAMARINDA
+======================================= */
 
+.navbar {
+    background: #0d47a1;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Menu utama */
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+/* Link menu */
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 14px;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+
+.nav-menu li a:hover {
+    background: white;
+    color: #0d47a1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Dropdown */
+
+.dropdown:hover > a {
+    background: white;
+    color: #0d47a1;
+}
+
+/* Submenu */
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    min-width: 230px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    list-style: none;
+    padding: 10px 0;
+    z-index: 999;
+    animation: fadeDown 0.3s ease;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* Submenu item */
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    color: #222;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 0;
+}
+
+/* Hover submenu */
+
+.submenu li a:hover {
+    background: #f5f7fa;
+    color: #0d47a1;
+    padding-left: 28px;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Animation */
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Mobile */
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu li a {
+        width: 100%;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 8px;
+        margin-top: 8px;
+    }
+
+    .submenu li a {
+        padding-left: 20px;
+    }
+}
     .nav-menu {
       display: flex;
       gap: 24px;
