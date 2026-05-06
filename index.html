@@ -276,16 +276,45 @@ body {
 </head>
 <body>
 
-  <nav>
-    <div class="nav-logo">ASIA COMPUTER</div>
-    <div class="nav-menu">
-      <a href="#about">Tentang</a>
-      <a href="#services">Layanan</a>
-      <a href="#testimoni">Testimoni</a>
-      <a href="#contact">Kontak</a>
-      <a href="#blog">Blog</a>
+ <nav class="navbar">
+    <div class="container nav-container">
+        <h2 class="logo">ASIA COMPUTER</h2>
+
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+
+            <li class="dropdown">
+                <a href="#">Layanan ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">Service Laptop</a></li>
+                    <li><a href="#">Install Ulang</a></li>
+                    <li><a href="#">Upgrade SSD / RAM</a></li>
+                    <li><a href="#">Service Printer</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Customer ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">Booking Service</a></li>
+                    <li><a href="#">Cek Status</a></li>
+                    <li><a href="#">Invoice</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Admin ▼</a>
+                <ul class="submenu">
+                    <li><a href="admin.html">Dashboard</a></li>
+                    <li><a href="#">Data Customer</a></li>
+                    <li><a href="#">Laporan</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Kontak</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
   <header>
     <img src="logo.png" alt="Logo Asia Computer" class="logo">
