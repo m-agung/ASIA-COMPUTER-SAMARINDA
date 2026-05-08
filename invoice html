@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Service - Asia Computer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    padding:30px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#C00000;
+    margin-bottom:30px;
+}
+
+.invoice-box{
+    background:#111;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #5A1E1E;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+}
+
+textarea{
+    resize:none;
+    height:100px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#C00000;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.result{
+    display:none;
+    margin-top:30px;
+    background:#1a1a1a;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #5A1E1E;
+}
+
+.result h2{
+    color:#C00000;
+    margin-bottom:20px;
+}
+
+.invoice-detail p{
+    margin-bottom:10px;
+    line-height:1.7;
+}
+
+.total{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+    color:#C00000;
+}
+
+.print-btn{
+    margin-top:20px;
+    background:#25D366;
+}
+
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    body{
+        padding:15px;
+    }
+
+    .invoice-box,
+    .result{
+        padding:20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Invoice Service Otomatis</h1>
+
+    <div class="invoice-box">
+
+        <div class="grid">
+            <input type="text" id="nama" placeholder="Nama Customer">
+            <input type="text" id="device" placeholder="Jenis Device">
+        </div>
+
+        <div class="grid">
+            <input type="text" id="invoice" placeholder="Nomor Invoice (contoh: AC-2026-001)">
+            <input type="text" id="tanggal" placeholder="Tanggal Service">
+        </div>
+
+        <textarea id="keluhan" placeholder="Keluhan Device"></textarea>
+
+        <div class="grid">
+            <input type="number" id="biayaService" placeholder="Biaya Service">
+            <input type="number" id="biayaSparepart" placeholder="Biaya Sparepart">
+        </div>
+
+        <button onclick="generateInvoice()">Generate Invoice</button>
+
+    </div>
+
+    <div class="result" id="invoiceResult">
+
+        <h2>Invoice Service</h2>
+
+        <div class="invoice-detail">
+            <p id="showInvoice"></p>
+            <p id="showNama"></p>
+            <p id="showDevice"></p>
+            <p id="showTanggal"></p>
+            <p id="showKeluhan"></p>
+            <p id="showService"></p>
+            <p id="showSparepart"></p>
+
+            <div class="total" id="showTotal"></div>
+        </div>
+
+        <button class="print-btn" onclick="window.print()">
+            Cetak Invoice
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+function generateInvoice(){
+
+    let nama = document.getElementById("nama").value;
+    let device = document.getElementById("device").value;
+    let invoice = document.getElementById("invoice").value;
+    let tanggal = document.getElementById("tanggal").value;
+    let keluhan = document.getElementById("keluhan").value;
+    let biayaService = parseInt(document.getElementById("biayaService").value) || 0;
+    let biayaSparepart = parseInt(document.getElementById("biayaSparepart").value) || 0;
+
+    let total = biayaService + biayaSparepart;
+
+    if(nama === "" || invoice === ""){
+        alert("Mohon lengkapi data invoice");
+        return;
+    }
+
+    document.getElementById("showInvoice").innerHTML =
+        "<strong>Nomor Invoice:</strong> " + invoice;
+
+    document.getElementById("showNama").innerHTML =
+        "<strong>Nama Customer:</strong> " + nama;
+
+    document.getElementById("showDevice").innerHTML =
+        "<strong>Device:</strong> " + device;
+
+    document.getElementById("showTanggal").innerHTML =
+        "<strong>Tanggal:</strong> " + tanggal;
+
+    document.getElementById("showKeluhan").innerHTML =
+        "<strong>Keluhan:</strong> " + keluhan;
+
+    document.getElementById("showService").innerHTML =
+        "<strong>Biaya Service:</strong> Rp " + biayaService.toLocaleString("id-ID");
+
+    document.getElementById("showSparepart").innerHTML =
+        "<strong>Biaya Sparepart:</strong> Rp " + biayaSparepart.toLocaleString("id-ID");
+
+    document.getElementById("showTotal").innerHTML =
+        "TOTAL : Rp " + total.toLocaleString("id-ID");
+
+    document.getElementById("invoiceResult").style.display = "block";
+}
+</script>
+
+</body>
+</html>
