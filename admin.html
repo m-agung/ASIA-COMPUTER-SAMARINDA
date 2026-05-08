@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#050505;
+    color:white;
+}
+header{
+    background:#C00000;
+    padding:20px;
+    text-align:center;
+}
+.container{
+    padding:30px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+.card{
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #5A1E1E;
+}
+h3{
+    color:#C00000;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Dashboard Admin</h1>
+</header>
+
+<div class="container">
+    <div class="grid">
+
+        <div class="card">
+            <h3>Total Customer</h3>
+            <p>128</p>
+        </div>
+
+        <div class="card">
+            <h3>Booking Service</h3>
+            <p>45</p>
+        </div>
+
+        <div class="card">
+            <h3>Service Selesai</h3>
+            <p>32</p>
+        </div>
+
+        <div class="card">
+            <h3>Pendapatan Bulan Ini</h3>
+            <p>Rp 8.500.000</p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
